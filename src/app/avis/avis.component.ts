@@ -1,11 +1,11 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Avis } from '../models';
 
 @Component({
   selector: 'app-avis',
   template: `
-      <button type="button" class="btn btn-primary btn-sm" (click)="onClickAimer()">{{textJaime}}</button>
-      <button type="button" class="btn btn-danger btn-sm"  (click)="onClickDetester()">{{textJeDeteste}}</button>
+      <button type="button" class="btn btn-primary btn-sm" [disabled]="score && score>scoreSeuil" (click)="onClickAimer()">{{textJaime}}</button>
+      <button type="button" class="btn btn-danger btn-sm"  [disabled]="score && score<-scoreSeuil" (click)="onClickDetester()">{{textJeDeteste}}</button>
   `,
   styles: [
 
@@ -14,10 +14,13 @@ import { Avis } from '../models';
 
 export class AvisComponent implements OnInit {
 
+  @Input() score?:number;
   @Output() avisClick:EventEmitter<Avis> = new EventEmitter<Avis>();
 
   textJaime = "J'aime";
   textJeDeteste = "Je déteste";
+
+  scoreSeuil = 1000;
 
   constructor() { }
 
