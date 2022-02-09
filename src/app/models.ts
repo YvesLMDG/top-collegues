@@ -3,3 +3,8 @@ export interface Collegue {
   score: number;
   photoUrl: string;
 }
+
+export enum Avis {
+  AIMER,
+  DETESTER
+}

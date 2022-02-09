@@ -22,7 +22,7 @@ export class AppComponent {
   collegue1: Collegue = {
     photoUrl: "https://opentoadventure.files.wordpress.com/2011/08/bender.png",
     pseudo: "Bender",
-    score: 1000000
+    score: 100000
   }
 
 }

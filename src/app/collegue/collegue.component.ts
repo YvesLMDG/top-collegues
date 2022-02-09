@@ -1,5 +1,5 @@
-import { Collegue } from '../models';
-import { Component, Input, OnInit } from '@angular/core';
+import { Avis, Collegue } from '../models';
+import { Component, Input, OnInit, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-collegue',
@@ -13,7 +13,7 @@ import { Component, Input, OnInit } from '@angular/core';
       <ng-template #thenBlock>
         <div *ngIf="collegue.score>0, else scoreNegatif">+ {{collegue.score}}</div>
           <ng-template #scoreNegatif>
-            <div>{{collegue.score}}</div>
+            <div>- {{-collegue.score}}</div>
           </ng-template>
       </ng-template>
       <ng-template #elseBlock>
@@ -21,7 +21,7 @@ import { Component, Input, OnInit } from '@angular/core';
       </ng-template>
 
 
-      <app-avis class="col-12"></app-avis>
+      <app-avis class="col-12" (avisClick)="traiter($event)"></app-avis>
 
     </div>
   `,
@@ -30,15 +30,27 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class CollegueComponent implements OnInit {
 
-  @Input() collegue?:Collegue;
+  @Input() collegue?: Collegue;
 
   alternativeContent = "????"
 
   constructor() {
 
-   }
+  }
 
   ngOnInit(): void {
+  }
+
+  traiter(avis: Avis) {
+    if (this.collegue?.score){
+      if (avis == Avis.AIMER){
+        this.collegue.score+= 10;
+      }
+      else if(avis == Avis.DETESTER){
+        this.collegue.score-= 100;
+      }
+
+    }
   }
 
 }
