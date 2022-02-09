@@ -8,6 +8,7 @@ import { Collegue } from './models';
       <div class="row">
         <div class="col-md-2"><app-collegue [collegue]=bender></app-collegue></div>
         <div class="col-md-2"><app-collegue [collegue]=fry></app-collegue></div>
+        <div class="col-md-2"><app-collegue [collegue]=></app-collegue></div>
         <div class="col-md-2"></div>
         <div class="col-md-2"></div>
       </div>
@@ -31,5 +32,6 @@ export class AppComponent {
     pseudo: "Fry",
     score: -900
   }
+
 }
 

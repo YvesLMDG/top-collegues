@@ -4,8 +4,8 @@ import { Avis } from '../models';
 @Component({
   selector: 'app-avis',
   template: `
-      <button type="button" class="btn btn-primary btn-sm" [disabled]="score && score>scoreSeuil" (click)="onClickAimer()">{{textJaime}}</button>
-      <button type="button" class="btn btn-danger btn-sm"  [disabled]="score && score<-scoreSeuil" (click)="onClickDetester()">{{textJeDeteste}}</button>
+      <button type="button" class="btn btn-primary btn-sm" [disabled]="score>scoreSeuil" (click)="onClickAimer()">{{textJaime}}</button>
+      <button type="button" class="btn btn-danger btn-sm"  [disabled]="score<-scoreSeuil" (click)="onClickDetester()">{{textJeDeteste}}</button>
   `,
   styles: [
 
@@ -14,7 +14,7 @@ import { Avis } from '../models';
 
 export class AvisComponent implements OnInit {
 
-  @Input() score?:number;
+  @Input() score!:number;
   @Output() avisClick:EventEmitter<Avis> = new EventEmitter<Avis>();
 
   textJaime = "J'aime";
