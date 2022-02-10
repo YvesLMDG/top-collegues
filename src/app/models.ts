@@ -1,5 +1,10 @@
+export enum Avis {
+  AIMER,
+  DETESTER
+}
+
 export interface Collegue {
-  pseudo : string;
+  pseudo: string;
   nom?: string;
   prenom?: string;
   score: number;
@@ -7,7 +12,7 @@ export interface Collegue {
   photo?: string;
 }
 
-export enum Avis {
-  AIMER,
-  DETESTER
+export interface Vote {
+  pseudo: string;
+  avis: Avis;
 }
