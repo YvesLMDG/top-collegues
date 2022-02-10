@@ -1,25 +1,21 @@
 import { Avis, Collegue } from '../models';
 import { Component, Input } from '@angular/core';
+import { ScorePipe } from '../pipes/score.pipe';
 
 @Component({
   selector: 'app-collegue',
   template: `
     <div class="text-center" *ngIf="collegue; else noCollegue">
 
-      <div class="col-12" *ngIf="collegue.photoUrl; else elseBlock">
+      <div class="col-12" *ngIf="collegue.photoUrl">
         <img [src]=collegue.photoUrl>
+      </div>
+      <div class="col-12" *ngIf="collegue.photo">
+        <img [src]=collegue.photo>
       </div>
 
       <div class="col-12">{{collegue.pseudo}}</div>
-       <div *ngIf="collegue.score>=0; else scoreNegatif">+ {{collegue.score}}</div>
-        <ng-template #scoreNegatif>
-            <div>- {{-collegue.score}}</div>
-        </ng-template>
-
-      <ng-template #elseBlock>
-        <div>{{alternativeContent}}</div>
-      </ng-template>
-
+      <div class="col-12">{{collegue.score | score}}</div>
       <app-avis [score]=collegue.score class="col-12" (avisClick)="traiter($event)"></app-avis>
 
 

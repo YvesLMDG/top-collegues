@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Avis } from '../models';
 
 @Component({
-  selector: 'app-avis',
+  selector: 'app-avis [score]',
   template: `
       <button type="button" class="btn btn-primary btn-sm" [disabled]="score>scoreSeuil" (click)="onClickAimer()">{{textJaime}}</button>
       <button type="button" class="btn btn-danger btn-sm"  [disabled]="score<-scoreSeuil" (click)="onClickDetester()">{{textJeDeteste}}</button>
@@ -20,7 +20,7 @@ export class AvisComponent implements OnInit {
   textJaime = "J'aime";
   textJeDeteste = "Je déteste";
 
-  scoreSeuil = 1000;
+  scoreSeuil = 999;
 
   constructor() { }
 

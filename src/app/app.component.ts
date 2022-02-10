@@ -4,15 +4,7 @@ import { Collegue } from './models';
 @Component({
   selector: 'app-root',
   template: `
-    <div class ="container-fluid">
-      <div class="row">
-        <div class="col-md-2"><app-collegue [collegue]=bender></app-collegue></div>
-        <div class="col-md-2"><app-collegue [collegue]=fry></app-collegue></div>
-        <div class="col-md-2"><app-collegue [collegue]=></app-collegue></div>
-        <div class="col-md-2"></div>
-        <div class="col-md-2"></div>
-      </div>
-    </div>
+    <app-liste-collegues></app-liste-collegues>
 `,
   styles: [
   ]
