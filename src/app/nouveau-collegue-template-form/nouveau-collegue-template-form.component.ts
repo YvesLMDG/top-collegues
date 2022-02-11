@@ -1,3 +1,4 @@
+import { DataService } from './../services/data.service';
 import { Collegue } from './../models';
 import { Component, OnInit, Input } from '@angular/core';
 
@@ -19,8 +20,8 @@ import { Component, OnInit, Input } from '@angular/core';
     <p *ngIf="prenom.invalid">Le champ est invalide.</p>
     </div>
     <div class="form-group">
-    <label>PhotoUrl</label><input class="form-control" [(ngModel)]="collegue.photoUrl" name="photoUrl" #photoUrl="ngModel" required>
-    <p *ngIf="photoUrl.invalid">Le champ est invalide.</p>
+    <label>PhotoUrl</label><input class="form-control" [(ngModel)]="collegue.photo" name="photoUrl" #photo="ngModel" required>
+    <p *ngIf="photo.invalid">Le champ est invalide.</p>
     </div>
     <button class="btn btn-primary" [disabled]="form.invalid" type="submit">Ajouter</button>
     </form>
@@ -34,12 +35,13 @@ export class NouveauCollegueTemplateFormComponent implements OnInit {
   collegue:Partial<Collegue> = {};
   formValid=false;
 
-  constructor() { }
+  constructor(private dataService:DataService) { }
 
   ngOnInit(): void {
   }
 
   submit(){
-    console.log(this.collegue);
+    this.dataService.creerCollegue(this.collegue).subscribe(col=>console.log(col));
+
   }
 }

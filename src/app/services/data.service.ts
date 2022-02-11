@@ -28,4 +28,20 @@ export class DataService {
         "avis": avis
     });
   }
+
+  creerCollegue(collegue: Partial<Collegue>): Observable<Collegue> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "Content-Type": "application/json"
+      })
+    };
+    return this.httpClient.post<Collegue>('https://formation-angular-collegues.herokuapp.com/api/v1/collegues',
+      {
+        "pseudo": collegue.pseudo,
+        "prenom": collegue.prenom,
+        "nom": collegue.nom,
+        "photo": collegue.photo
+    });
+  }
+
 }
