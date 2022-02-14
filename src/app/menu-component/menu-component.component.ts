@@ -5,8 +5,8 @@ import { Component, OnInit } from '@angular/core';
   template: `
   <nav>
     <ul class="nav nav-pills nav-fill">
-      <li routerLink="/accueil" routerLinkActive="active" class="nav-link">Accueil</li>
-      <li routerLink="/formulaire" routerLinkActive="active" class="nav-link">Formulaire piloté par le template</li>
+      <li routerLink="/collegues" routerLinkActive="active" class="nav-link">Accueil</li>
+      <li routerLink="/form-template" routerLinkActive="active" class="nav-link">Formulaire piloté par le template</li>
     </ul>
   </nav>
   `,

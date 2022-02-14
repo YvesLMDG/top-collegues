@@ -16,6 +16,11 @@ export class DataService {
     return this.httpClient.get<Collegue[]>('https://formation-angular-collegues.herokuapp.com/api/v1/collegues');
   }
 
+  listerUnCollegue(pseudoCollegue:string): Observable<Collegue> {
+    return this.httpClient.get<Collegue>('https://formation-angular-collegues.herokuapp.com/api/v1/collegues/'+ pseudoCollegue);
+  }
+
+
   donnerUnAvis(collegue: Collegue, avis: Avis): Observable<Collegue> {
     const httpOptions = {
       headers: new HttpHeaders({

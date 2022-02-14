@@ -20,6 +20,7 @@ export class ListeColleguesComponent implements OnInit {
 
   collegues:Observable<Collegue[]>;
 
+
   constructor(private dataService:DataService) {
     this.collegues= this.dataService.listerCollegues();
   }

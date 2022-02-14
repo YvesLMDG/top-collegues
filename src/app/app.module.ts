@@ -15,13 +15,16 @@ import { Route, Router, Routes, RouterModule } from '@angular/router';
 
 const routerConfig: Routes = [
   {
-    path: 'accueil', component: ListeColleguesComponent
+    path: 'collegues', component: ListeColleguesComponent
   },
   {
-    path: 'formulaire', component: NouveauCollegueTemplateFormComponent
+    path: 'form-template', component: NouveauCollegueTemplateFormComponent
   },
+  {
+    path:'collegues/:pseudo', component:CollegueComponent
 
-  { path: '', pathMatch: 'full', redirectTo: '/accueil' },
+  },
+  { path: '', pathMatch: 'full', redirectTo: '/collegues' },
 ];
 
 @NgModule({
