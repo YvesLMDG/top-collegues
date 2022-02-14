@@ -4,8 +4,10 @@ import { Collegue } from './models';
 @Component({
   selector: 'app-root',
   template: `
-  <app-nouveau-collegue-template-form></app-nouveau-collegue-template-form>
-  <app-liste-collegues></app-liste-collegues>
+  <app-menu-component></app-menu-component>
+  <main>
+    <router-outlet></router-outlet>
+  </main>
 `,
   styles: [
   ]

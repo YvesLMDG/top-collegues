@@ -10,6 +10,19 @@ import { ListeColleguesComponent } from './liste-collegues/liste-collegues.compo
 import { ScorePipe } from './pipes/score.pipe';
 import { NouveauCollegueTemplateFormComponent } from './nouveau-collegue-template-form/nouveau-collegue-template-form.component';
 import { FormsModule } from '@angular/forms';
+import { MenuComponentComponent } from './menu-component/menu-component.component';
+import { Route, Router, Routes, RouterModule } from '@angular/router';
+
+const routerConfig: Routes = [
+  {
+    path: 'accueil', component: ListeColleguesComponent
+  },
+  {
+    path: 'formulaire', component: NouveauCollegueTemplateFormComponent
+  },
+
+  { path: '', pathMatch: 'full', redirectTo: '/accueil' },
+];
 
 @NgModule({
   declarations: [
@@ -18,13 +31,15 @@ import { FormsModule } from '@angular/forms';
     CollegueComponent,
     ListeColleguesComponent,
     ScorePipe,
-    NouveauCollegueTemplateFormComponent
+    NouveauCollegueTemplateFormComponent,
+    MenuComponentComponent
   ],
   imports: [
     BrowserModule,
     NgbModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(routerConfig)
   ],
   providers: [],
   bootstrap: [AppComponent]

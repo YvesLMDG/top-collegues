@@ -33,7 +33,6 @@ import { Component, OnInit, Input } from '@angular/core';
 export class NouveauCollegueTemplateFormComponent implements OnInit {
 
   collegue:Partial<Collegue> = {};
-  formValid=false;
 
   constructor(private dataService:DataService) { }
 
@@ -42,6 +41,5 @@ export class NouveauCollegueTemplateFormComponent implements OnInit {
 
   submit(){
     this.dataService.creerCollegue(this.collegue).subscribe(col=>console.log(col));
-
   }
 }
